@@ -1,4 +1,10 @@
-FROM progrium/cedarish:cedar14
+FROM cloudfoundry/cflinuxfs2
+# Use https://hub.docker.com/r/cloudfoundry/cflinuxfs2/
+# This is docker image which is used cloudfoundry DEA base.
+# Change base image from progrium/cedarish:cedar14
+# https://github.com/progrium/cedarish
+#
+# TODO check differece between cedarish and cflinuxfs2
 
 RUN curl https://github.com/gliderlabs/herokuish/releases/download/v0.3.1/herokuish_0.3.1_linux_x86_64.tgz \
 		--silent -L | tar -xzC /bin
