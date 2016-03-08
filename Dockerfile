@@ -21,3 +21,5 @@ RUN /bin/herokuish buildpack install \
 
 # backwards compatibility
 ADD ./rootfs /
+
+ENV CF_STACK=cflinuxfs2
