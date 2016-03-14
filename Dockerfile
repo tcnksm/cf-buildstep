@@ -14,10 +14,15 @@ RUN curl https://github.com/gliderlabs/herokuish/releases/download/v0.3.1/heroku
 		--silent -L | tar -xzC /bin
 
 # Install herokuish supported buildpacks and entrypoints
-RUN /bin/herokuish buildpack install \
-	&& ln -s /bin/herokuish /build \
+RUN ln -s /bin/herokuish /build \
 	&& ln -s /bin/herokuish /start \
 	&& ln -s /bin/herokuish /exec
 
 # backwards compatibility
 ADD ./rootfs /
+
+ENV CF_STACK=cflinuxfs2
+
+ADD cf-buildpack.sh /bin/cf-buildpack.sh
+RUN /bin/cf-buildpack.sh
+
