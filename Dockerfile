@@ -18,16 +18,11 @@ RUN ln -s /bin/herokuish /build \
 	&& ln -s /bin/herokuish /start \
 	&& ln -s /bin/herokuish /exec
 
-RUN git clone --recursive https://github.com/cloudfoundry/java-buildpack /tmp/buildpacks/java-buildpack && \
-		git clone --recursive https://github.com/cloudfoundry/ruby-buildpack /tmp/buildpacks/ruby-buildpack && \
-		git clone --recursive https://github.com/cloudfoundry/nodejs-buildpack /tmp/buildpacks/nodejs-buildpack && \
-		git clone --recursive https://github.com/cloudfoundry/php-buildpack /tmp/buildpacks/php-buildpack && \
-		git clone --recursive https://github.com/cloudfoundry/go-buildpack /tmp/buildpacks/go-buildpack && \
-		git clone --recursive https://github.com/cloudfoundry/python-buildpack /tmp/buildpacks/python-buildpack && \
-		git clone --recursive https://github.com/cloudfoundry/staticfile-buildpack /tmp/buildpacks/staticfile-buildpack && \
-		git clone --recursive https://github.com/cloudfoundry/binary-buildpack /tmp/buildpacks/binary-buildpack
-
 # backwards compatibility
 ADD ./rootfs /
 
 ENV CF_STACK=cflinuxfs2
+
+ADD cf-buildpack.sh /bin/cf-buildpack.sh
+RUN /bin/cf-buildpack.sh
+
