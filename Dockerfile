@@ -31,3 +31,4 @@ RUN git clone --recursive https://github.com/cloudfoundry/java-buildpack /tmp/bu
 ADD ./rootfs /
 
 ENV CF_STACK=cflinuxfs2
+ENV MEMORY_LIMIT=2G
