@@ -22,7 +22,10 @@ RUN ln -s /bin/herokuish /build \
 ADD ./rootfs /
 
 ENV CF_STACK=cflinuxfs2
+<<<<<<< HEAD
 ENV MEMORY_LIMIT=2G
 
 ADD cf-buildpack.sh /bin/cf-buildpack.sh
 RUN /bin/cf-buildpack.sh
+=======
+>>>>>>> parent of 27b5fe7... Added memory limit envvar for java buildpack
