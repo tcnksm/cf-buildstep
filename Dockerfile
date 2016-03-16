@@ -22,7 +22,6 @@ RUN ln -s /bin/herokuish /build \
 ADD ./rootfs /
 
 ENV CF_STACK=cflinuxfs2
-
+ENV MEMORY_LIMIT=2GB
 ADD cf-buildpack.sh /bin/cf-buildpack.sh
 RUN /bin/cf-buildpack.sh
-
